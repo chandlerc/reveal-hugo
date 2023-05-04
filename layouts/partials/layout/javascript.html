@@ -42,7 +42,10 @@
   };
 
   // See all options - https://github.com/hakimel/reveal.js#configuration
-  var options = Object.assign({},
+  var options = Object.assign(
+    {
+      {{ .Site.Params.reveal_hugo.raw_initialize_options | safeJS }}
+    },
     camelize(revealHugoDefaults),
     camelize(revealHugoSiteParams),
     camelize(revealHugoPageParams),
